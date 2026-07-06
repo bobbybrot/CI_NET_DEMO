@@ -4,17 +4,17 @@
     [
         {
             "label": "Build & Run Windows",
-            "type" : "shell",
+            "type" : "process",
             "command" : "dotnet",
             "args" :
             [
                 "build",
                 "${workspaceFolder}\\MauiApp1\\MauiApp1.csproj",
-                "-f"
+                "-f",
                 "net10.0-windows10.0.19041.0",
-                "-t:Run",
                 "-c",
-                "Debug"
+                "Debug",
+                "-t:Build;Run"
             ],
             "problemMatcher" : "$msCompile",
             "group":
