@@ -4,9 +4,13 @@ on: [push]
 jobs:
     build:
         runs-on: windows-latest
-        
-    steps:
-        - uses: actions/checkout@v7
-
-        - name: Setup dotnet
-          uses: actions/setup-dotnet@v4
+        steps:
+          - uses: actions/checkout@v7
+          
+          - name: Setup dotnet
+            uses: actions/setup-dotnet@v5
+            with:
+              dotnet-version: '10.x'
+              
+          - name: Display version
+            run: dotnet --version
