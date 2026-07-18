@@ -1,5 +1,5 @@
-MauiApp1/[bB]in/*
-MauiApp1/[oO]bj/*
+[bB]in/
+[oO]bj/
 .vs/
 *.user
 *.suo
