@@ -7,16 +7,10 @@ jobs:
         steps:
           - uses: actions/checkout@v7
           
-          - name: Setup dotnet
-            uses: actions/setup-dotnet@v5
-            with:
-              dotnet-version: '10.x'
-              workloads: maui-windows # We are not building for Android / iOS, so don't need to download the entire Maui SDK!
-              # Cache properties.  If doing repeat CI operation, within 7 days, Github Server will reuse cache of NET packages to speed up process.
-              cache: true
-              cache-dependency-path: |
-                MauiApp1/packages.lock.json
-                TestProject1/packages.lock.json
+          - name: Display Local .NET info
+            run : |
+              dotnet --info
+              dotnet workload list
 
           - name: Display version
             run: dotnet --version
