@@ -3,14 +3,20 @@ on: [push]
 
 jobs:
     build:
-        runs-on: [self-hosted, Windows, X64]
+        runs-on: windows-latest
         steps:
           - uses: actions/checkout@v7
           
-          - name: Display Local .NET info
-            run : |
-              dotnet --info
-              dotnet workload list
+          - name: Setup .Net
+            uses: actions/setup-dotnet@v6
+            with:
+              dotnet-version: 10.x
+              workloads: maui-windows
+              cache: true
+              cache-dependency-path: |
+                MauiApp1/packages.lock.json
+                TestProject1/packages.lock.json
+
 
           - name: Display version
             run: dotnet --version
